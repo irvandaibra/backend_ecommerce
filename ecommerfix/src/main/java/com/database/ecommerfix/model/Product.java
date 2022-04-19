@@ -18,7 +18,7 @@ public class Product extends ProductDto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     @ManyToOne
     @JoinColumn(name = "category_id")
@@ -44,11 +44,11 @@ public class Product extends ProductDto {
     @Column(name = "Harga")
     private int Harga;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -83,6 +83,7 @@ public class Product extends ProductDto {
     public void setHarga(int harga) {
         Harga = harga;
     }
+
 
 
 }

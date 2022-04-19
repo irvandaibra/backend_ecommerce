@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProductSer {
@@ -28,6 +29,7 @@ public class ProductSer {
 
     public ProductDto getProductDto(Product product) {
         Product productDto = new Product();
+        product.setId(product.getId());
         productDto.setNamaProduct(product.getNamaProduct());
         productDto.setDesc(product.getDesc());
         productDto.setImgUrl(product.getImgUrl());
@@ -45,5 +47,17 @@ public class ProductSer {
         }
         return productDtos;
     }
-    
+
+    public void updateProduct(ProductDto productDto, Integer productId) throws Exception {
+        Optional<Product> optionalProduct = productRepository.findById(productId);
+        if (!optionalProduct.isPresent()) {
+            throw new Exception("product not present!");
+        }
+        Product product = optionalProduct.get();
+        product.setNamaProduct(productDto.getNamaProduct());
+        product.setDesc(productDto.getDesc());
+        product.setImgUrl(productDto.getImgUrl());
+        product.setHarga(productDto.getHarga());
+        productRepository.save(product);
+    }
 }

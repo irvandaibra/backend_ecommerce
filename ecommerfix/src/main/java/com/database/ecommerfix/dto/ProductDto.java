@@ -2,18 +2,18 @@ package com.database.ecommerfix.dto;
 
 public class ProductDto {
 
-    private int id;
+    private Integer id;
     private String namaProduct;
     private String desc;
     private String imgUrl;
     private int Harga;
     private int category_id;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
