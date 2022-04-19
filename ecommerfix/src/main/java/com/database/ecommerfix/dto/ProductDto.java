@@ -9,6 +9,7 @@ public class ProductDto {
     private int Harga;
     private int category_id;
 
+
     public Integer getId() {
         return id;
     }

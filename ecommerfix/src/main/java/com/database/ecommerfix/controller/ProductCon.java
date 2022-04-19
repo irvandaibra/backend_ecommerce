@@ -43,14 +43,14 @@ public class ProductCon {
     }
 
     // edit product
-    @PatchMapping("/edit/{productId}")
+    @PatchMapping("/{productId}")
     public ResponseEntity<ApiResponse> updateProduct(@PathVariable ("productId") Integer productId, @RequestBody ProductDto productDto) throws Exception {
         Optional<Category> optionalCategory = categoryRepository.findById(productDto.getCategory_id());
         if (!optionalCategory.isPresent()){
             return new ResponseEntity<ApiResponse>(new ApiResponse(false, "category does not exist"), HttpStatus.BAD_REQUEST);
         }
         productSer.updateProduct(productDto, productId);
-        return new ResponseEntity<ApiResponse>(new ApiResponse(true, "product has been added"), HttpStatus.CREATED);
+        return new ResponseEntity<ApiResponse>(new ApiResponse(true, "product has been edit"), HttpStatus.CREATED);
     }
 
 }

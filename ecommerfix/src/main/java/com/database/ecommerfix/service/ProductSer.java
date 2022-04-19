@@ -29,7 +29,7 @@ public class ProductSer {
 
     public ProductDto getProductDto(Product product) {
         Product productDto = new Product();
-        product.setId(product.getId());
+        productDto.setId(product.getId());
         productDto.setNamaProduct(product.getNamaProduct());
         productDto.setDesc(product.getDesc());
         productDto.setImgUrl(product.getImgUrl());
@@ -48,7 +48,7 @@ public class ProductSer {
         return productDtos;
     }
 
-    public void updateProduct(ProductDto productDto, Integer productId) throws Exception {
+    public void updateProduct(ProductDto productDto, int productId) throws Exception {
         Optional<Product> optionalProduct = productRepository.findById(productId);
         if (!optionalProduct.isPresent()) {
             throw new Exception("product not present!");

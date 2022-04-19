@@ -44,6 +44,7 @@ public class Product extends ProductDto {
     @Column(name = "Harga")
     private int Harga;
 
+
     public Integer getId() {
         return id;
     }
@@ -83,7 +84,5 @@ public class Product extends ProductDto {
     public void setHarga(int harga) {
         Harga = harga;
     }
-
-
 
 }
