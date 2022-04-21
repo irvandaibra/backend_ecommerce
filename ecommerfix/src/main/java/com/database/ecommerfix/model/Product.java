@@ -1,6 +1,7 @@
 package com.database.ecommerfix.model;
 
 import com.database.ecommerfix.dto.ProductDto;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,6 +22,7 @@ public class Product extends ProductDto {
     private Integer id;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "category_id")
     Category category;
 
