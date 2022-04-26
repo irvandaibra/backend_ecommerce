@@ -14,10 +14,10 @@ public class Category {
     private String nama;
 
     @Column(name = "Deskripsi")
-    private String Deskripsi;
+    private String deskripsi;
 
     @Column(name = "Image")
-    private String Url;
+    private String url;
 
     public Integer getId() {
         return id;
@@ -36,18 +36,18 @@ public class Category {
     }
 
     public String getDeskripsi() {
-        return Deskripsi;
+        return deskripsi;
     }
 
     public void setDeskripsi(String deskripsi) {
-        this.Deskripsi = deskripsi;
+        this.deskripsi = deskripsi;
     }
 
     public String getUrl() {
-        return Url;
+        return url;
     }
 
     public void setUrl(String url) {
-        this.Url = url;
+        this.url = url;
     }
 }

@@ -1,6 +1,7 @@
 package com.database.ecommerfix.service;
 
 import com.database.ecommerfix.dto.ProductDto;
+import com.database.ecommerfix.excep.ProductNotExistsException;
 import com.database.ecommerfix.model.Category;
 import com.database.ecommerfix.model.Product;
 import com.database.ecommerfix.repository.ProductRepository;
@@ -59,5 +60,13 @@ public class ProductSer {
         product.setImgUrl(productDto.getImgUrl());
         product.setHarga(productDto.getHarga());
         productRepository.save(product);
+    }
+
+    public Product findById (Integer productId) throws ProductNotExistsException {
+        Optional<Product>optionalProduct = productRepository.findById(productId);
+        if (optionalProduct.isEmpty()) {
+            throw new ProductNotExistsException("product is invalid" + productId);
+        }
+        return optionalProduct.get();
     }
 }
